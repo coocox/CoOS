@@ -1,0 +1,111 @@
+
+This file shows how to contribute to the CoOS project. 
+
+The contributer can:
+
+1. Add a CoOS example to a series chips.
+2. Develop middlewares such as gui tcp-ip based on CoOS
+3. Improve CoOS and correction bugs
+4. Port CoOS to a new ARM series
+
+1. Add a CoOS example to a series chips
+-------------------------------------------------------------------------------
+
+    1.1. Example Directory Organizition
+-------------------------------------------------------------------------------
+
+    The root directory of the Example is 
+/CoOS\Example\$manufacturer$\$series$, such as /CoOS\Example\ST\STM32F1xx.
+
+
+/BSPLIB/
+    Source code of all the peripherals library, include *.h, *.c.
+    
+	src/
+	    stm32f10x_adc.c
+		stm32f10x_exti.c
+		...
+	
+	inc/
+        stm32f10x_adc.h
+		stm32f10x_bkp.h
+    ...
+
+/$Example name$/ (/STM32F103RB_CoOS/ for example)
+    IAR, MDK, CoIDE project of the example(STM32F103RB_CoOS).
+            
+    IAR/
+        IAR projects of the example.
+        
+        APP/
+            App code of this example project.
+			
+            AppConfig.c
+			AppConfig.h
+			OsConfig.h
+			main.c
+			...
+        
+		Project/
+		    IAR EWARM project files.
+			
+		    CoOsDemo.eww
+			CoOsDemo.ewp
+			CoOsDemo.ewd
+            ...
+			
+        readme.txt
+		
+        ...
+        
+    MDK/
+        MDK projects of the example.
+        
+        APP/
+            App code of this example project.
+			
+            AppConfig.c
+			AppConfig.h
+			main.c
+			...
+        
+		Project/
+		    Keil MDK project files.
+                
+                CoOsDemo.uvproj
+            ...   
+			
+        readme.txt	
+		
+        ...
+    
+        
+    
+    1.2 Steps to add a CoOS example to a new mcu platform
+-------------------------------------------------------------------------------        
+
+- Download a example.
+- Wirte the peripheral config in the AppConfig.h and AppConfig.c.
+- Wirte your own applications in the main.c.
+- Use the IAR or MDK compile and test your code.
+- Commit to your fork repository, and send pull request on the github.
+
+
+2. Develop middlewares such as gui tcp-ip based on CoOS
+-------------------------------------------------------------------------------
+
+    Add in future.
+	
+3. Improve CoOS and correction bugs
+-------------------------------------------------------------------------------
+    Directly modify the file under the CoOS directory and write a  change log 
+	when you push.
+
+4. Port CoOS to a new ARM series
+-------------------------------------------------------------------------------
+   You just re-implement files in the CoOS\portable directory.
+
+
+
+
+    
