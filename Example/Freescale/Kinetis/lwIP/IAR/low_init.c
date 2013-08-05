@@ -88,12 +88,21 @@ static void clock_enable(void) {
     SIM_SCGC7 = 0xFFFFFFFF;
 }
 
+void trace_clk_init(void) {
+    // trace clock to the core clock frequency
+    SIM_SOPT2 |= SIM_SOPT2_TRACECLKSEL_MASK;
+
+    // enable the TRACE_CLKOUT pin function on PTA6 (alt7 function)
+    PORTA_PCR6 = ( PORT_PCR_MUX(0x7));
+}
+
 /** Low level init function.
  */
 int __low_level_init(void) {
     wdt_disable();
     pll_init();
     clock_enable();
-    
+    trace_clk_init();
+
     return 1;
 }

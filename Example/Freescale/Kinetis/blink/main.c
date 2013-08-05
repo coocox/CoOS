@@ -9,7 +9,7 @@
 
 #include <CoOS.h>
 
-#include "MK60N512VMD100.h"
+#include <MK60D.h>
 
 #define TASK_LED_STACK_SIZE     128
 #define TASK_LED_PRI            3
