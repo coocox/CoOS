@@ -3,7 +3,7 @@
 
 #if LWIP_NETCONN
 
-#define TASK_HTTP_STACK_SIZE    200
+#define TASK_HTTP_STACK_SIZE    800
 #define TASK_HTTP_PRIO          5
 
 const static char http_html_hdr[] = "HTTP/1.1 200 OK\r\nContent-type: text/html\r\n\r\n";

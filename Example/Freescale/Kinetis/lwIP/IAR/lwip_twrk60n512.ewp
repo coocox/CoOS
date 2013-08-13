@@ -30,7 +30,7 @@
         <option>
           <name>Variant</name>
           <version>20</version>
-          <state>0</state>
+          <state>39</state>
         </option>
         <option>
           <name>GEndianMode</name>
@@ -65,7 +65,7 @@
         </option>
         <option>
           <name>OGCoreOrChip</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>GRuntimeLibSelect</name>
@@ -87,7 +87,7 @@
         </option>
         <option>
           <name>OGLastSavedByProductVersion</name>
-          <state>6.30.1.53141</state>
+          <state>6.50.6.4952</state>
         </option>
         <option>
           <name>GeneralEnableMisra</name>
@@ -99,7 +99,7 @@
         </option>
         <option>
           <name>OGChipSelectEditMenu</name>
-          <state>default	None</state>
+          <state>MK60DN512xxx10	Freescale MK60DN512xxx10</state>
         </option>
         <option>
           <name>GenLowLevelInterface</name>
@@ -107,7 +107,7 @@
         </option>
         <option>
           <name>GEndianModeBE</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>OGBufferedTerminalOutput</name>
@@ -138,12 +138,12 @@
         <option>
           <name>GFPUCoreSlave</name>
           <version>20</version>
-          <state>0</state>
+          <state>39</state>
         </option>
         <option>
           <name>GBECoreSlave</name>
           <version>20</version>
-          <state>0</state>
+          <state>39</state>
         </option>
         <option>
           <name>OGUseCmsis</name>
@@ -233,7 +233,7 @@
         </option>
         <option>
           <name>CCDebugInfo</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>IEndianMode</name>
@@ -297,7 +297,17 @@
         </option>
         <option>
           <name>CCIncludePath2</name>
-          <state></state>
+          <state>$PROJ_DIR$</state>
+          <state>$PROJ_DIR$\..</state>
+          <state>$PROJ_DIR$\..\..\BSPLIB\inc</state>
+          <state>$PROJ_DIR$\..\..\BSPLIB\src</state>
+          <state>$PROJ_DIR$\..\..\cmsis</state>
+          <state>$PROJ_DIR$\..\..\cmsis\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\CoOS\portable</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\CoOS\kernel</state>
+          <state>$PROJ_DIR$\..\lwip-1.4.1\src\include</state>
+          <state>$PROJ_DIR$\..\lwip-1.4.1\src\include\ipv4</state>
+          <state>$PROJ_DIR$\..\lwip_port</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -309,7 +319,7 @@
         </option>
         <option>
           <name>IInterwork2</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>IProcessorMode2</name>
@@ -686,11 +696,11 @@
         </option>
         <option>
           <name>IlinkIcfOverride</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>IlinkIcfFile</name>
-          <state>$TOOLKIT_DIR$\CONFIG\generic.icf</state>
+          <state>$PROJ_DIR$\512KB_Pflash.icf</state>
         </option>
         <option>
           <name>IlinkIcfFileSlave</name>
@@ -750,7 +760,7 @@
         </option>
         <option>
           <name>IlinkProgramEntryLabel</name>
-          <state></state>
+          <state>__iar_program_start</state>
         </option>
         <option>
           <name>DoFill</name>

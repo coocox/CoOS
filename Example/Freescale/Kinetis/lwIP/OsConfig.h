@@ -151,7 +151,7 @@ Enable(1) or disable(0) kernel heap management.
 Kernel heap size(word).      
 */ 
 #if CFG_KHEAP_EN >0
-#define KHEAP_SIZE              (500)
+#define KHEAP_SIZE              (1000)
 #endif   
 
 

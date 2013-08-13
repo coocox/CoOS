@@ -169,7 +169,7 @@
 /** Thread options
  */
 #define TCPIP_THREAD_NAME              "tcpip_thread"
-#define TCPIP_THREAD_STACKSIZE          300
+#define TCPIP_THREAD_STACKSIZE          1200
 #define TCPIP_THREAD_PRIO               LWIP_START_PRIO
 
 //#define TCPIP_MBOX_SIZE                 0

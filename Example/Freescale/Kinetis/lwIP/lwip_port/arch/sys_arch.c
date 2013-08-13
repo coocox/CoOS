@@ -227,12 +227,12 @@ void sys_init(void) {
 
 sys_thread_t sys_thread_new(const char *name, lwip_thread_fn thread, void *arg, int stacksize, int prio) {
     OS_TID tsk;
-    void *stack;
+    OS_STK *stack;
     
     if (LWIP_TASK_MAX > current_task) {
-        stack = CoKmalloc(stacksize);
+        stack = (OS_STK*)CoKmalloc(stacksize);
         if (stack) {
-            tsk = CoCreateTask(thread, arg, prio, stack, stacksize);
+            tsk = CoCreateTask(thread, arg, prio, &stack[(stacksize / sizeof(OS_STK)) - 1], stacksize);
             if (E_CREATE_FAIL != tsk) {
                 current_task++;
                 return tsk;
