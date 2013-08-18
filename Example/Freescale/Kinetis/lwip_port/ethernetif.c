@@ -838,6 +838,7 @@ err_t ethernetif_init(struct netif *netif) {
     return ERR_OK;
 }
 
+#if 0
 /** ENET interrupt handler
  */
 void ethernetif_isr(void) {
@@ -861,4 +862,30 @@ void ethernetif_isr(void) {
         init_enet_bufs();
         ENET_RDAR = ENET_RDAR_RDAR_MASK;
     }
+}
+#endif
+
+/** ENET interrupt handler
+ */
+void ENET_Transmit_IRQHandler(void) {
+    ENET_EIR = ENET_EIR_TXF_MASK;
+
+    isr_PostSem(sem_tx);
+}
+
+/** ENET interrupt handler
+ */
+void ENET_Receive_IRQHandler(void) {
+    ENET_EIR = ENET_EIR_RXF_MASK;
+
+    isr_PostSem(sem_rx);
+}
+
+/** ENET interrupt handler
+ */
+void ENET_Error_IRQHandler(void) {
+    ENET_EIR = (ENET_EIR_UN_MASK | ENET_EIR_RL_MASK | ENET_EIR_LC_MASK | ENET_EIR_EBERR_MASK | ENET_EIR_BABT_MASK | ENET_EIR_BABR_MASK | ENET_EIR_EBERR_MASK);
+
+	init_enet_bufs();
+	ENET_RDAR = ENET_RDAR_RDAR_MASK;
 }
