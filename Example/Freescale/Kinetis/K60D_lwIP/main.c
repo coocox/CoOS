@@ -1,3 +1,10 @@
+/**
+ * @file main.c
+ * @date 31 Jul 2013
+ * @brief lwIP demonstration - simple web server on TWR-K60N512 board
+ *
+ */
+
 #include "coos.h"
 
 #include "lwip/def.h"

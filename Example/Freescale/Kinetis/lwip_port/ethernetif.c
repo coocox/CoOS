@@ -16,9 +16,9 @@
 #include "netif/etharp.h"
 #include "netif/ppp_oe.h"
 
+#include <AppConfig.h>
 #include <coos.h>
 
-#include <MK60D.h>
 
 /* Standard library includes. */
 #include <string.h>
@@ -214,7 +214,7 @@ static void low_level_init(struct netif *netif) {
     netif->flags = NETIF_FLAG_BROADCAST | NETIF_FLAG_ETHARP | NETIF_FLAG_LINK_UP;
     
     /* enable the ENET clock */
-    SIM_SCGC2 |= SIM_SCGC2_ENET_MASK;
+//    SIM_SCGC2 |= SIM_SCGC2_ENET_MASK;
     
     /* allow concurrent access to MPU controller. Example: ENET uDMA to SRAM, otherwise bus error */
     MPU_CESR = 0;         

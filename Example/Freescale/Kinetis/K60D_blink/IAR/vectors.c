@@ -6,7 +6,6 @@
 
 #include "vectors.h"
 #include "isr.h"
-//#include "common.h"
 
 /******************************************************************************
 * Vector Table

@@ -1,8 +1,12 @@
-/******************************************************************************
-* File:    isr.h
-* Purpose: Define interrupt service routines referenced by the vector table.
-* Note: Only "vectors.c" should include this header file.
-******************************************************************************/
+/**
+ * @file AppConfig.h
+ * @date 25 Jul 2013
+ * @brief Define interrupt service routines referenced by the vector table.
+ *
+ * @note
+ * Only "vectors.c" should include this header file.
+ *
+ */
 
 #ifndef __ISR_H
 #define __ISR_H

@@ -305,9 +305,9 @@
           <state>$PROJ_DIR$\..\..\cmsis\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\CoOS\portable</state>
           <state>$PROJ_DIR$\..\..\..\..\..\CoOS\kernel</state>
-          <state>$PROJ_DIR$\..\lwip-1.4.1\src\include</state>
-          <state>$PROJ_DIR$\..\lwip-1.4.1\src\include\ipv4</state>
-          <state>$PROJ_DIR$\..\lwip_port</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\include\ipv4</state>
+          <state>$PROJ_DIR$\..\..\lwip_port</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -1231,9 +1231,9 @@
           <state>$PROJ_DIR$\..\..\cmsis\include</state>
           <state>$PROJ_DIR$\..\..\..\..\..\CoOS\portable</state>
           <state>$PROJ_DIR$\..\..\..\..\..\CoOS\kernel</state>
-          <state>$PROJ_DIR$\..\lwip-1.4.1\src\include</state>
-          <state>$PROJ_DIR$\..\lwip-1.4.1\src\include\ipv4</state>
-          <state>$PROJ_DIR$\..\lwip_port</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\include</state>
+          <state>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\include\ipv4</state>
+          <state>$PROJ_DIR$\..\..\lwip_port</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -1870,6 +1870,15 @@
     </group>
   </group>
   <group>
+    <name>cmsis</name>
+    <file>
+      <name>$PROJ_DIR$\..\..\cmsis\system_MK60D.c</name>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\..\..\cmsis\system_MK60D.h</name>
+    </file>
+  </group>
+  <group>
     <name>CoOS</name>
     <group>
       <name>port</name>
@@ -1979,28 +1988,28 @@
     <group>
       <name>api</name>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\api\api_lib.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\api\api_lib.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\api\api_msg.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\api\api_msg.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\api\err.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\api\err.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\api\netbuf.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\api\netbuf.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\api\netdb.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\api\netdb.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\api\netifapi.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\api\netifapi.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\api\sockets.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\api\sockets.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\api\tcpip.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\api\tcpip.c</name>
       </file>
     </group>
     <group>
@@ -2008,101 +2017,104 @@
       <group>
         <name>ipv4</name>
         <file>
-          <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\ipv4\autoip.c</name>
+          <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\ipv4\autoip.c</name>
         </file>
         <file>
-          <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\ipv4\icmp.c</name>
+          <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\ipv4\icmp.c</name>
         </file>
         <file>
-          <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\ipv4\igmp.c</name>
+          <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\ipv4\igmp.c</name>
         </file>
         <file>
-          <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\ipv4\inet.c</name>
+          <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\ipv4\inet.c</name>
         </file>
         <file>
-          <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\ipv4\inet_chksum.c</name>
+          <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\ipv4\inet_chksum.c</name>
         </file>
         <file>
-          <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\ipv4\ip.c</name>
+          <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\ipv4\ip.c</name>
         </file>
         <file>
-          <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\ipv4\ip_addr.c</name>
+          <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\ipv4\ip_addr.c</name>
         </file>
         <file>
-          <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\ipv4\ip_frag.c</name>
+          <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\ipv4\ip_frag.c</name>
         </file>
       </group>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\def.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\def.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\dhcp.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\dhcp.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\dns.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\dns.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\init.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\init.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\mem.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\mem.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\memp.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\memp.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\netif.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\netif.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\pbuf.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\pbuf.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\raw.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\raw.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\stats.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\stats.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\sys.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\sys.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\tcp.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\tcp.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\tcp_in.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\tcp_in.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\tcp_out.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\tcp_out.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\timers.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\timers.c</name>
       </file>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\core\udp.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\core\udp.c</name>
       </file>
     </group>
     <group>
       <name>netif</name>
       <file>
-        <name>$PROJ_DIR$\..\lwip-1.4.1\src\netif\etharp.c</name>
+        <name>$PROJ_DIR$\..\..\..\..\..\Components\net\lwip-1.4.1\src\netif\etharp.c</name>
       </file>
     </group>
   </group>
   <group>
     <name>lwip_port</name>
     <file>
-      <name>$PROJ_DIR$\..\lwip_port\ethernetif.c</name>
+      <name>$PROJ_DIR$\..\..\lwip_port\ethernetif.c</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\lwip_port\ethernetif.h</name>
+      <name>$PROJ_DIR$\..\..\lwip_port\ethernetif.h</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\lwip_port\lwipopts.h</name>
+      <name>$PROJ_DIR$\..\..\lwip_port\lwipopts.h</name>
     </file>
     <file>
-      <name>$PROJ_DIR$\..\lwip_port\arch\sys_arch.c</name>
+      <name>$PROJ_DIR$\..\..\lwip_port\arch\sys_arch.c</name>
     </file>
   </group>
+  <file>
+    <name>$PROJ_DIR$\..\AppConfig.h</name>
+  </file>
   <file>
     <name>$PROJ_DIR$\..\httpserver-netconn.c</name>
   </file>

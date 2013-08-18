@@ -9,7 +9,8 @@
 
 #include "mii.h"
 
-#include <MK60D.h>
+#include <AppConfig.h>
+
 #include <stddef.h>
 
 

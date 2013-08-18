@@ -4,6 +4,8 @@
  *
  */
 
+#include <AppConfig.h>
+
 #include "lwip/debug.h"
 #include "lwip/def.h"
 #include "lwip/sys.h"
@@ -11,7 +13,6 @@
 #include "lwip/stats.h"
 #include "osevent.h"
 
-#include <MK60D.h>
 
 static U8 queue_memory_pool[LWIP_MAX_QUEUE * LWIP_SIZE_QUEUE * 4];
 static OS_MMID  queue_pool; 

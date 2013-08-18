@@ -7,6 +7,8 @@
  * @note       Ensure you have knew every item before modify this file. 
  *******************************************************************************
  * @copy
+ *
+ * INTERNAL FILE,DON'T PUBLIC.
  * 
  * <h2><center>&copy; COPYRIGHT 2009 CooCox </center></h2>
  *******************************************************************************
@@ -149,7 +151,7 @@ Enable(1) or disable(0) kernel heap management.
 Kernel heap size(word).      
 */ 
 #if CFG_KHEAP_EN >0
-#define KHEAP_SIZE              (50)			
+#define KHEAP_SIZE              (1000)
 #endif   
 
 
@@ -196,7 +198,7 @@ Event sort type.(1)FIFO (2)PRI (3)FIFO+PRI
 Max number of event.(must be less than 255) 	      
 Event = semaphore + mailbox + queue;			      
 */
-#define CFG_MAX_EVENT           (10)	
+#define CFG_MAX_EVENT           (20)	
 
 /*!< 
 Enable(1) or disable(0) semaphore management.	      
@@ -217,7 +219,7 @@ Enable(1) or disable(0) queue management.
 Max number of queue.(less than CFG_MAX_EVENT).       
 */
 #if	CFG_QUEUE_EN >0	
-#define CFG_MAX_QUEUE           (2)		
+#define CFG_MAX_QUEUE           5
 #endif   // CFG_QUEUE_EN
 	
 #endif   // CFG_EVENT_EN

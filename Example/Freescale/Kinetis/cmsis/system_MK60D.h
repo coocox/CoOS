@@ -1,12 +1,11 @@
 /**************************************************************************//**
- * @file     system_MK60N512VMD100.h
- * @brief    CMSIS Cortex-M# Device Peripheral Access Layer Header File for
- *           Device MK60N512VMD100
+ * @file     system_MK60D.h
+ * @brief    CMSIS Cortex-M4 Device Peripheral Access Layer Header File for
+ *           Device MK60Dxxx
  * @version  V3.01
  * @date     06. March 2012
  *
  * @note
- * Copyright (C) 2010-2012 ARM Limited. All rights reserved.
  *
  * @par
  * ARM Limited (ARM) is supplying this software for use with Cortex-M 
@@ -23,8 +22,8 @@
  ******************************************************************************/
 
 
-#ifndef SYSTEM_MK60N512VMD100_H
-#define SYSTEM_MK60N512VMD100_H
+#ifndef SYSTEM_MK60D_H
+#define SYSTEM_MK60D_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -61,4 +60,4 @@ extern void SystemCoreClockUpdate (void);
 }
 #endif
 
-#endif /* SYSTEM_MK60N512VMD100_H */
+#endif /* SYSTEM_MK60D_H */

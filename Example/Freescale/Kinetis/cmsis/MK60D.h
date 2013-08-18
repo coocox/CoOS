@@ -280,7 +280,7 @@ typedef struct
 
 /*@}*/ /* end of group MK60D_Definitions */
 
-#endif
+#endif // 0
 
 #include <MK60N512VMD100.h>
 
