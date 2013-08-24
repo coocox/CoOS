@@ -133,11 +133,11 @@ static void init_enet_bufs(void) {
     int i;
     uint8_t *buf;
 
-    tx_bd = (enet_bd_t*)((uint32_t)tx_bd_unaligned + 0x0f & 0xfffffff0);
-    rx_bd = (enet_bd_t*)((uint32_t)rx_bd_unaligned + 0x0f & 0xfffffff0);
+    tx_bd = (enet_bd_t*)(((uint32_t)tx_bd_unaligned + 0x0f) & 0xfffffff0);
+    rx_bd = (enet_bd_t*)(((uint32_t)rx_bd_unaligned + 0x0f) & 0xfffffff0);
         
     /* setup the buffers and initialize buffers descriptors */
-    buf = (uint8_t*)((uint32_t)tx_bufs + 0x0f & 0xfffffff0);
+    buf = (uint8_t*)(((uint32_t)tx_bufs + 0x0f) & 0xfffffff0);
 
     for (i = 0; i < NUM_ENET_TX_BUFS; i++) {
         tx_bd[i].status = ENET_TX_BD_TC;
@@ -158,7 +158,7 @@ static void init_enet_bufs(void) {
         buf += ENET_TX_BUF_SIZE;
     }
     
-    buf = (uint8_t*)((uint32_t)rx_bufs + 0x0f & 0xfffffff0);
+    buf = (uint8_t*)(((uint32_t)rx_bufs + 0x0f) & 0xfffffff0);
 
     for (i = 0; i < NUM_ENET_RX_BUFS; i++) {
         rx_bd[i].status = ENET_RX_BD_E;

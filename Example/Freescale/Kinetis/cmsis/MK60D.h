@@ -282,7 +282,8 @@ typedef struct
 
 #endif // 0
 
-#include <MK60N512VMD100.h>
+//#include <MK60N512VMD100.h>
+#include <MK60DZ10.h>
 
 #ifdef __cplusplus
 }

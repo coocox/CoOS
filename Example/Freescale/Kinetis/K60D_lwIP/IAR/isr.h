@@ -13,7 +13,9 @@
 
 void PendSV_Handler(void);
 void SysTick_Handler(void);
-void ethernetif_isr(void);
+void ENET_Transmit_IRQHandler(void);
+void ENET_Receive_IRQHandler(void);
+void ENET_Error_IRQHandler(void);
 
 #undef  VECTOR_014
 #define VECTOR_014 PendSV_Handler
@@ -22,12 +24,12 @@ void ethernetif_isr(void);
 #define VECTOR_015 SysTick_Handler
 
 #undef  VECTOR_092
-#define VECTOR_092 ethernetif_isr
-  
+#define VECTOR_092 ENET_Transmit_IRQHandler
+
 #undef  VECTOR_093
-#define VECTOR_093 ethernetif_isr
-  
+#define VECTOR_093 ENET_Receive_IRQHandler
+
 #undef  VECTOR_094
-#define VECTOR_094 ethernetif_isr
+#define VECTOR_094 ENET_Error_IRQHandler
 
 #endif  //__ISR_H
