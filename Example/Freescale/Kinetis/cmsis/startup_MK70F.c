@@ -1,17 +1,17 @@
 /**
- ******************************************************************************
- * @file      startup_MK70F.c
- * @version   V1.0
- * @date      24. Aug 2013
- * @brief     MK70Fxxx (Cortex M4F) startup code.
- *            This module performs:
- *                - Set the initial SP
- *                - Set the vector table entries with the exceptions ISR address
- *                - Initialize data and bss
- *                - Call the application's entry point.
- *            After Reset the Cortex-M4F processor is in Thread mode,
- *            priority is Privileged, and the Stack is set to Main.
- *******************************************************************************
+ * @file 	startup_MK70F.c
+ * @version V1.0
+ * @date    24. Aug 2013
+ * @author	Jozef Maslik (maslo@binarylemon.com)
+ * @note	Based on Coocox startup_Cortex_M4.c
+ * @brief  	MK70Fxxx (Cortex M4F) startup code.
+ *          This module performs:
+ *              - Set the initial SP
+ *              - Set the vector table entries with the exceptions ISR address
+ *              - Initialize data and bss
+ *          	- Call the application's entry point.
+ *          After Reset the Cortex-M4F processor is in Thread mode,
+ *        	priority is Privileged, and the Stack is set to Main.
  */
 
 
@@ -295,10 +295,8 @@ void (* const g_pfnVectors[0x100])(void) = {
     I2S1_Rx_IRQHandler,                 /*!< I2S1 receive interrupt */
 };
 
-__attribute__ ((used,section(".isr_vector.cfmprot")))
-void (*const cfmprot[4])(void) =
-{
-    0xffffffff,
+__attribute__ ((used, section(".isr_vector.cfmprot"))) long cfmprot[4] = {
+	0xffffffff,
     0xffffffff,
     0xffffffff,
     0xfffffffe,
@@ -316,6 +314,7 @@ void (*const cfmprot[4])(void) =
 void Default_Reset_Handler(void) {
     /* Initialize data and bss */
     unsigned long *pulSrc, *pulDest;
+    extern void SystemInit (void);
 
     SystemInit();
 
@@ -477,6 +476,5 @@ void Default_Reset_Handler(void) {
   */
 static void Default_Handler(void) {
     /* Go into an infinite loop. */
-	__asm("nop");
-//    while (1);
+    while (1);
 }

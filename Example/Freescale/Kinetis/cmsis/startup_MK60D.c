@@ -430,6 +430,5 @@ void Default_Reset_Handler(void) {
   */
 static void Default_Handler(void) {
     /* Go into an infinite loop. */
-	__asm("nop");
-//    while (1);
+    while (1);
 }
