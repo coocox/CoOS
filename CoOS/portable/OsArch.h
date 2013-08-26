@@ -47,4 +47,18 @@ extern U8      Inc8 (volatile U8 *data);
 extern U8      Dec8 (volatile U8 *data);
 extern void    IRQ_ENABLE_RESTORE(void);
 extern void    IRQ_DISABLE_SAVE(void);
-#endif
+
+#if __FPU_USED
+
+#define CO_FLOAT_ISR(fn)                \
+    static void __##fn(void);    \
+    void fn(void) {                     \
+        asm volatile ("VSTMDB SP!, {S16-S31}    \n"     \
+                      "BLX %0      \n"   \
+                      "VLDMIA SP!, {S16-S31}" : : "r"(__##fn) : "lr");      \
+    }                                   \
+    void __##fn(void)
+
+#endif /* __FPU_USED */
+
+#endif /* _CPU_H */

@@ -40,6 +40,7 @@ OS_STK *InitTaskContext(FUNCPtr task,void *param,OS_STK *pstk)
     context      = context - 5;
 	*(context)   = (U32)param;            /* R0: argument */
 	context      = context - 8;
+    *(--context) = 0xfffffffd;          /* LR */
   	
     return (context);                   /* Returns location of new stack top. */
 }

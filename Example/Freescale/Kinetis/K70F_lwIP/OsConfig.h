@@ -19,10 +19,10 @@
 #define  _CONFIG_H
 
 
-/*!< 
-Defines chip type,cortex-m3(1),cortex-m0(2)      
+/*!<
+Defines chip type, cortex-m3(1), cortex-m0(2), cortex-m4(3)
 */
-#define CFG_CHIP_TYPE           (1)
+#define CFG_CHIP_TYPE           (3)
 
 /*!< 
 Defines the lowest priority that be assigned.       
@@ -37,7 +37,7 @@ Max number of tasks that can be running.
 /*!< 
 Idle task stack size(word).		                         
 */	
-#define CFG_IDLE_STACK_SIZE     (25)	
+#define CFG_IDLE_STACK_SIZE     (25 + 33)       // 33 words for FPU content
 
 /*!< 
 System frequency (Hz).	                 	         

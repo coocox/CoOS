@@ -90,10 +90,25 @@ PendSV_Handler
     MRS     R0, PSP             ; Get PSP point (can not use PUSH,in ISR,SP is MSP )
     STMDB   R0!,{R4-R11}        ; Store r4-r11,r0 -= regCnt * 4,r0 is new stack 
                                 ; top point (addr h->l r11,r10,...,r5,r4)
+#if __FPU_USED
+    TST LR, #(1 << 4)           ; EXC_RETURN[4]
+    IT EQ
+    VSTMDBEQ R0!, {S16-S31}     ; store remaining FPU registers
+#endif // CFG_FPU_ENABLE
+    STR LR, [R0, #-4]!          ; store LR for correct return to task
+
     STR     R0,[R1]             ; Save orig PSP
       
     STR     R2, [R3]            ; TCBRunning  = TCBNext;
     LDR     R0, [R2]            ; Get SP of task that be switch into.
+
+    LDR LR, [R0], #4
+#if __FPU_USED
+    TST LR, #(1 << 4)           ; EXC_RETURN[4]
+    IT EQ
+    VLDMIAEQ R0!, {S16-S31}
+#endif // CFG_FPU_ENABLE
+
     LDMIA   R0!,{R4-R11}        ; POP {R4-R11},R0 += regCnt * 4
     MSR     PSP, R0             ; Mov new stack point to PSP
   
@@ -103,6 +118,6 @@ exitPendSV
     STRB    R0, [R3]
     ORR     LR, LR, #0x04       ; Ensure exception return uses process stack
     BX      LR                  ; Exit interrupt
-    
+
     END	
 	

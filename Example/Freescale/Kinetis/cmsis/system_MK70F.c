@@ -124,6 +124,11 @@ static void trace_clk_init(void) {
     PORTA_PCR6 = PORT_PCR_MUX(0x7);
 }
 
+static void fpu_enable(void) {
+    SCB->CPACR |= (0xf << 20);
+    __DSB();
+    __ISB();
+}
 
 /*----------------------------------------------------------------------------
   Clock Variable definitions
@@ -152,6 +157,7 @@ void SystemInit(void) {
 	wdt_disable();
 	clock_enable();
 	trace_clk_init();
+	fpu_enable();
 
     // system dividers
     SIM_CLKDIV1 = SIM_CLKDIV1_OUTDIV1(0) | SIM_CLKDIV1_OUTDIV2(1) | SIM_CLKDIV1_OUTDIV3(2) | SIM_CLKDIV1_OUTDIV4(5);
