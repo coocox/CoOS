@@ -203,18 +203,16 @@ StatusType CoPendSem(OS_EventID id,U32 timeout)
     }
     else                                /* Resource is not available          */
     {
-    	OsSchedUnlock();
         curTCB = TCBRunning;
         if(timeout == 0)                /* If time-out is not configured      */
         {
             EventTaskToWait(pecb,curTCB); /* Block task until event occurs    */
+            OsSchedUnlock();
             curTCB->pmail = Co_NULL;
             return E_OK;
         }
         else                            /* If time-out is configured          */
         {
-            OsSchedLock();
-            
             /* Block task until event or timeout occurs                       */
             EventTaskToWait(pecb,curTCB);
             InsertDelayList(curTCB,timeout);
@@ -273,6 +271,12 @@ StatusType CoPostSem(OS_EventID id)
         return E_SEM_FULL;    /* The counter of Semaphore reach the max number*/
     }
     OsSchedLock();
+	if(pecb->eventTCBList != Co_NULL)
+    {
+    	EventTaskToRdy(pecb);
+    	OsSchedUnlock();
+    	return E_OK;
+    }
     pecb->eventCounter++;     /* Increment semaphore count to register event  */
     EventTaskToRdy(pecb);     /* Check semaphore event waiting list           */
     OsSchedUnlock();
