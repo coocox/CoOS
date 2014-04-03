@@ -1,38 +1,15 @@
 /**
  *******************************************************************************
  * @file       task.c
- * @version    V1.1.5    
- * @date       2014.01.13
+ * @version   V1.1.4    
+ * @date      2011.04.20
  * @brief      task management implementation code of CooCox CoOS kernel.	
  *******************************************************************************
  * @copy
  *
- *  Redistribution and use in source and binary forms, with or without 
- *  modification, are permitted provided that the following conditions 
- *  are met: 
- *  
- *      * Redistributions of source code must retain the above copyright 
- *  notice, this list of conditions and the following disclaimer. 
- *      * Redistributions in binary form must reproduce the above copyright
- *  notice, this list of conditions and the following disclaimer in the
- *  documentation and/or other materials provided with the distribution. 
- *      * Neither the name of the <ORGANIZATION> nor the names of its 
- *  contributors may be used to endorse or promote products derived 
- *  from this software without specific prior written permission. 
- *  
- *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- *  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
- *  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- *  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE 
- *  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
- *  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
- *  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- *  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
- *  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
- *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF 
- *  THE POSSIBILITY OF SUCH DAMAGE.
+ * INTERNAL FILE,DON'T PUBLIC.
  * 
- * <h2><center>&copy; COPYRIGHT 2014 CooCox </center></h2>
+ * <h2><center>&copy; COPYRIGHT 2009 CooCox </center></h2>
  *******************************************************************************
  */ 
 
@@ -47,6 +24,16 @@ OSTCB    TCBTbl[CFG_MAX_USER_TASKS+SYS_TASK_NUM] = {{0}};
 
 /*!< The stack of IDLE task.                     */
 OS_STK   idle_stk[CFG_IDLE_STACK_SIZE] = {0};
+
+#if CFG_STAT_TASK > 0
+U32 volatile CoIdleCtrl = 0;		// Counter for Idle Task
+U32 volatile CoIdleCtrMax = 0;		// Max Counter for Idle Task
+U8  volatile CoStatRdy=0;			// Enable Stat task.
+S8  volatile CoCPUUsage=0;			// Use %
+S8  volatile CoCPUUsagePeak=0;		// Peak %
+U32 volatile CoIdleCtrRun = 0;		// val. reached by idle ctr at run time in 1 sec
+OS_STK   stat_stk[CFG_STAT_STACK_SIZE] = {0};
+#endif
 
 P_OSTCB  FreeTCB     = Co_NULL;  /*!< pointer to free TCB                        */
 P_OSTCB  TCBRdy      = Co_NULL;  /*!< Pointer to the READY list.                 */
