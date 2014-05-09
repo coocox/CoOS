@@ -351,7 +351,7 @@ void EventTaskToRdy(P_ECB pecb)
     {
         ptcb->pmail    = pecb->eventPtr;  /* Yes,send mail to task            */
         pecb->eventPtr = Co_NULL;            /* Clear event sign                 */
-        pecb->eventCounter--;
+        //pecb->eventCounter--;
     }
 #endif
 #if CFG_QUEUE_EN >0
@@ -371,7 +371,7 @@ void EventTaskToRdy(P_ECB pecb)
 #if CFG_SEM_EN >0
     else if(pecb->eventType == EVENT_TYPE_SEM)/* Is it a semaphore event?     */
     {
-        pecb->eventCounter--;                 /* Yes,clear event sign         */
+        //pecb->eventCounter--;                 /* Yes,clear event sign         */
         ptcb->pmail = (void*)0xffffffff;      /* Indicate task woke by event  */
     }
 #endif

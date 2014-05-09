@@ -229,9 +229,10 @@ StatusType CoPendSem(OS_EventID id,U32 timeout)
         curTCB = TCBRunning;
         if(timeout == 0)                /* If time-out is not configured      */
         {
-            EventTaskToWait(pecb,curTCB); /* Block task until event occurs    */
-            OsSchedUnlock();
+            EventTaskToWait(pecb,curTCB); /* Block task until event occurs    */ 
+            pecb->eventCounter--;             
             curTCB->pmail = Co_NULL;
+            OsSchedUnlock();
             return E_OK;
         }
         else                            /* If time-out is configured          */
@@ -247,7 +248,10 @@ StatusType CoPendSem(OS_EventID id,U32 timeout)
             }                               
             else                  /* Event occurred or event have been deleted*/    
             {
+                OsSchedLock();
                 curTCB->pmail = Co_NULL;
+                pecb->eventCounter--; 
+                OsSchedUnlock();
                 return E_OK;	
             }				
         }		

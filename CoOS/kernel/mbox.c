@@ -231,8 +231,11 @@ void* CoPendMail(OS_EventID id,U32 timeout,StatusType* perr)
             *perr = E_OK;
             
             /* Have recived a message or the mailbox have been deleted        */
-            pmail = curTCB->pmail;          
+            OsSchedLock();
+            pmail = curTCB->pmail;    
+            pecb->eventCounter = 0;               
             curTCB->pmail = Co_NULL;
+            OsSchedUnlock(); 
             return pmail;               /* Return received message or Co_NULL    */
         }
         else                            /* If time-out is configured          */
@@ -251,8 +254,13 @@ void* CoPendMail(OS_EventID id,U32 timeout,StatusType* perr)
             else    /* Have recived a message or the mailbox have been deleted*/
             {
                 *perr = E_OK;
-                pmail = curTCB->pmail;
+                
+                OsSchedLock();
+                pmail = curTCB->pmail;            
+                pecb->eventCounter = 0;   
                 curTCB->pmail = Co_NULL;
+                OsSchedUnlock(); 
+                
                 return pmail;           /* Return received message or Co_NULL    */
             }			
         }	

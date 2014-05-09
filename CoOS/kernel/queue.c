@@ -318,8 +318,16 @@ void* CoPendQueueMail(OS_EventID id,U32 timeout,StatusType* perr)
             }
             else                        /* If event occured                   */
             {
-                pmail = curTCB->pmail;
+                OsSchedLock();
+                pmail = curTCB->pmail;              
                 curTCB->pmail = Co_NULL;
+                pqcb->head++;                             /* Clear event sign         */
+                pqcb->qSize--;
+                if(pqcb->head == pqcb->qMaxSize)
+                {
+                    pqcb->head = 0;	
+                }
+                OsSchedUnlock();
                 *perr = E_OK;
                 return pmail;           /* Return message received or Co_NULL    */
             }				
