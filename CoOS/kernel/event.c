@@ -359,12 +359,12 @@ void EventTaskToRdy(P_ECB pecb)
     {										   
         pqcb        = (P_QCB)pecb->eventPtr;      /* Yes,get queue pointer    */
         ptcb->pmail = *(pqcb->qStart + pqcb->head);   /* Send mail to task    */
-        pqcb->head++;                             /* Clear event sign         */
-        pqcb->qSize--;
-        if(pqcb->head == pqcb->qMaxSize)
-        {
-            pqcb->head = 0;	
-        }
+        //pqcb->head++;                             /* Clear event sign         */
+        //pqcb->qSize--;
+        //if(pqcb->head == pqcb->qMaxSize)
+        //{
+        //    pqcb->head = 0;	
+        //}
     }
 #endif
 

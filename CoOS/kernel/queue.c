@@ -290,8 +290,16 @@ void* CoPendQueueMail(OS_EventID id,U32 timeout,StatusType* perr)
             EventTaskToWait(pecb,curTCB); 
             
             /* Have recived message or the queue have been deleted            */
+            OsSchedLock(); 
             pmail = curTCB->pmail;              
             curTCB->pmail = Co_NULL;
+            pqcb->head++;                             /* Clear event sign         */
+            pqcb->qSize--;
+            if(pqcb->head == pqcb->qMaxSize)
+            {
+                pqcb->head = 0;	
+            }
+            OsSchedUnlock();
             *perr = E_OK;
             return pmail;               /* Return message received or Co_NULL    */
         }
