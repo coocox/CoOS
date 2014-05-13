@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<workspace>
+  <project>
+    <path>$WS_DIR$\K70F_blink\IAR\blink_twrk70f120.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\K70F_fpu\IAR\fpu_twrk70f120.ewp</path>
+  </project>
+  <project>
+    <path>$WS_DIR$\K70F_lwIP\IAR\lwip_twrk70f120.ewp</path>
+  </project>
+  <batchBuild/>
+</workspace>
+
+

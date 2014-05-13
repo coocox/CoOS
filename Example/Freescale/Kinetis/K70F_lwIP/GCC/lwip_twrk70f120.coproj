@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Project version="2G - 1.7.4" name="lwip_twrk70f120">
+  <Target name="lwip_twrk70f120" isCurrent="1">
+    <Device manufacturerId="1" manufacturerName="ARM" chipId="4" chipName="M4" boardId="" boardName=""/>
+    <BuildOption>
+      <Compile>
+        <Option name="OptimizationLevel" value="0"/>
+        <Option name="UseFPU" value="0"/>
+        <Option name="UserEditCompiler" value=""/>
+        <Includepaths>
+          <Includepath path="."/>
+          <Includepath path="../../../../../components/net/lwip-1.4.1/src/include"/>
+          <Includepath path="../../cmsis/include"/>
+          <Includepath path="../../../../../components/net/lwip-1.4.1/src/include/ipv4"/>
+          <Includepath path="../../lwip_port"/>
+          <Includepath path="../../cmsis"/>
+          <Includepath path="../../../../../coos/portable"/>
+          <Includepath path="../../../../../coos/kernel"/>
+        </Includepaths>
+        <DefinedSymbols>
+          <Define name="M4"/>
+        </DefinedSymbols>
+      </Compile>
+      <Link useDefault="0">
+        <Option name="DiscardUnusedSection" value="0"/>
+        <Option name="UserEditLinkder" value=""/>
+        <Option name="UseMemoryLayout" value="0"/>
+        <Option name="LTO" value="0"/>
+        <Option name="IsNewStartupCode" value="1"/>
+        <Option name="Library" value="Not use C Library"/>
+        <Option name="DiscardUnusedSections" value="1"/>
+        <Option name="nostartfiles" value="1"/>
+        <Option name="UserEditLinker" value="--entry=main; "/>
+        <LinkedLibraries/>
+        <MemoryAreas debugInFlashNotRAM="1">
+          <Memory name="IROM1" type="ReadOnly" size="0x00100000" startValue="0x00000000"/>
+          <Memory name="IRAM1" type="ReadWrite" size="0x00010000" startValue="0x1fff0000"/>
+          <Memory name="IROM2" type="ReadOnly" size="" startValue=""/>
+          <Memory name="IRAM2" type="ReadWrite" size="" startValue=""/>
+        </MemoryAreas>
+        <LocateLinkFile path="./arm-gcc-link.ld" type="0"/>
+      </Link>
+      <Output>
+        <Option name="OutputFileType" value="0"/>
+        <Option name="Path" value="./"/>
+        <Option name="Name" value="lwip_twrk70f120"/>
+        <Option name="HEX" value="1"/>
+        <Option name="BIN" value="1"/>
+      </Output>
+      <User>
+        <UserRun name="Run#1" type="Before" checked="0" value=""/>
+        <UserRun name="Run#1" type="After" checked="0" value=""/>
+      </User>
+    </BuildOption>
+    <DebugOption>
+      <Option name="org.coocox.codebugger.gdbjtag.core.adapter" value="J-Link"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.debugMode" value="JTAG"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.clockDiv" value="1M"/>
+      <Option name="org.coocox.codebugger.gdbjtag.corerunToMain" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkgdbserver" value="C:\Program Files (x86)\SEGGER\JLinkARM_V474b\JLinkGDBServerCL.exe"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.userDefineGDBScript" value=""/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.targetEndianess" value="0"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.jlinkResetMode" value="Type 0: Normal"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.resetMode" value="SYSRESETREQ"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifSemihost" value="0"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ifCacheRom" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.ipAddress" value="127.0.0.1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.portNumber" value="2331"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.autoDownload" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.verify" value="1"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.downloadFuction" value="Erase Effected"/>
+      <Option name="org.coocox.codebugger.gdbjtag.core.defaultAlgorithm" value="STM32F4xx_1024.elf"/>
+      <Option name="org.coocox.codebugger.gdbjtag.coredebugInRamInitCommands" value="cd C:/sandbox/priv/CoOS/Example/Freescale/Kinetis/K70F_lwIP/GCC/lwip_twrk70f120/Debug/bin restore lwip_twrk70f120.elf set {unsigned int*}0xE000ED08 = 0x10000000 set $sp = {unsigned int*}0x10000000 set $pc = {unsigned int*}0x10000004 "/>
+    </DebugOption>
+    <ExcludeFile/>
+  </Target>
+  <Components path="./"/>
+  <Files>
+    <File name="lwip/core/raw.c" path="../../../../../Components/net/lwip-1.4.1/src/core/raw.c" type="1"/>
+    <File name="httpserver-netconn.c" path="../httpserver-netconn.c" type="1"/>
+    <File name="AppConfig.h" path="../AppConfig.h" type="1"/>
+    <File name="cmsis/MK70F.h" path="../../cmsis/MK70F.h" type="1"/>
+    <File name="lwip/core/pbuf.c" path="../../../../../Components/net/lwip-1.4.1/src/core/pbuf.c" type="1"/>
+    <File name="cmsis/system_MK70F.h" path="../../cmsis/system_MK70F.h" type="1"/>
+    <File name="CoOS/timer.c" path="../../../../../CoOS/kernel/timer.c" type="1"/>
+    <File name="CoOS/sem.c" path="../../../../../CoOS/kernel/sem.c" type="1"/>
+    <File name="lwip_port/ethernetif.c" path="../../lwip_port/ethernetif.c" type="1"/>
+    <File name="CoOS/port" path="" type="2"/>
+    <File name="CoOS/coocox.h" path="../../../../../CoOS/kernel/coocox.h" type="1"/>
+    <File name="lwip/core/ipv4" path="" type="2"/>
+    <File name="lwip/core/ipv4/ip_addr.c" path="../../../../../Components/net/lwip-1.4.1/src/core/ipv4/ip_addr.c" type="1"/>
+    <File name="lwip/core/ipv4/ip.c" path="../../../../../Components/net/lwip-1.4.1/src/core/ipv4/ip.c" type="1"/>
+    <File name="BSPLIB" path="" type="2"/>
+    <File name="CoOS/OsMutex.h" path="../../../../../CoOS/kernel/OsMutex.h" type="1"/>
+    <File name="lwip/core/dns.c" path="../../../../../Components/net/lwip-1.4.1/src/core/dns.c" type="1"/>
+    <File name="lwip_port/lwipopts.h" path="../../lwip_port/lwipopts.h" type="1"/>
+    <File name="lwip/core/sys.c" path="../../../../../Components/net/lwip-1.4.1/src/core/sys.c" type="1"/>
+    <File name="CoOS/port/OsArch.h" path="../../../../../CoOS/portable/OsArch.h" type="1"/>
+    <File name="cmsis/startup_MK70F.c" path="../../cmsis/startup_MK70F.c" type="1"/>
+    <File name="CoOS/task.c" path="../../../../../CoOS/kernel/task.c" type="1"/>
+    <File name="lwip" path="" type="2"/>
+    <File name="CoOS/OsQueue.h" path="../../../../../CoOS/kernel/OsQueue.h" type="1"/>
+    <File name="BSPLIB/enet" path="" type="2"/>
+    <File name="lwip/api/netbuf.c" path="../../../../../Components/net/lwip-1.4.1/src/api/netbuf.c" type="1"/>
+    <File name="cmsis/MK70F12.h" path="../../cmsis/MK70F12.h" type="1"/>
+    <File name="CoOS/OsEvent.h" path="../../../../../CoOS/kernel/OsEvent.h" type="1"/>
+    <File name="CoOS/hook.c" path="../../../../../CoOS/kernel/hook.c" type="1"/>
+    <File name="lwip/core/ipv4/ip_frag.c" path="../../../../../Components/net/lwip-1.4.1/src/core/ipv4/ip_frag.c" type="1"/>
+    <File name="BSPLIB/enet/mii.h" path="../../BSPLIB/src/enet/mii.h" type="1"/>
+    <File name="CoOS/serviceReq.c" path="../../../../../CoOS/kernel/serviceReq.c" type="1"/>
+    <File name="lwip/api/api_lib.c" path="../../../../../Components/net/lwip-1.4.1/src/api/api_lib.c" type="1"/>
+    <File name="lwip/api" path="" type="2"/>
+    <File name="CoOS/mbox.c" path="../../../../../CoOS/kernel/mbox.c" type="1"/>
+    <File name="BSPLIB/enet/enet.h" path="../../BSPLIB/src/enet/enet.h" type="1"/>
+    <File name="lwip/core/ipv4/autoip.c" path="../../../../../Components/net/lwip-1.4.1/src/core/ipv4/autoip.c" type="1"/>
+    <File name="lwip/netif" path="" type="2"/>
+    <File name="CoOS/OsTask.h" path="../../../../../CoOS/kernel/OsTask.h" type="1"/>
+    <File name="CoOS/OsTime.h" path="../../../../../CoOS/kernel/OsTime.h" type="1"/>
+    <File name="lwip_port/ethernetif.h" path="../../lwip_port/ethernetif.h" type="1"/>
+    <File name="lwip/core/init.c" path="../../../../../Components/net/lwip-1.4.1/src/core/init.c" type="1"/>
+    <File name="CoOS/OsCore.h" path="../../../../../CoOS/kernel/OsCore.h" type="1"/>
+    <File name="lwip/api/tcpip.c" path="../../../../../Components/net/lwip-1.4.1/src/api/tcpip.c" type="1"/>
+    <File name="lwip/core/tcp_out.c" path="../../../../../Components/net/lwip-1.4.1/src/core/tcp_out.c" type="1"/>
+    <File name="CoOS/OsServiceReq.h" path="../../../../../CoOS/kernel/OsServiceReq.h" type="1"/>
+    <File name="lwip/core/ipv4/icmp.c" path="../../../../../Components/net/lwip-1.4.1/src/core/ipv4/icmp.c" type="1"/>
+    <File name="lwip/core/memp.c" path="../../../../../Components/net/lwip-1.4.1/src/core/memp.c" type="1"/>
+    <File name="lwip/core/def.c" path="../../../../../Components/net/lwip-1.4.1/src/core/def.c" type="1"/>
+    <File name="CoOS/mutex.c" path="../../../../../CoOS/kernel/mutex.c" type="1"/>
+    <File name="lwip/core/netif.c" path="../../../../../Components/net/lwip-1.4.1/src/core/netif.c" type="1"/>
+    <File name="BSPLIB/enet/mii.c" path="../../BSPLIB/src/enet/mii.c" type="1"/>
+    <File name="CoOS/CoOS.h" path="../../../../../CoOS/kernel/CoOS.h" type="1"/>
+    <File name="lwip/api/sockets.c" path="../../../../../Components/net/lwip-1.4.1/src/api/sockets.c" type="1"/>
+    <File name="lwip/core/mem.c" path="../../../../../Components/net/lwip-1.4.1/src/core/mem.c" type="1"/>
+    <File name="lwip/core/dhcp.c" path="../../../../../Components/net/lwip-1.4.1/src/core/dhcp.c" type="1"/>
+    <File name="lwip/api/api_msg.c" path="../../../../../Components/net/lwip-1.4.1/src/api/api_msg.c" type="1"/>
+    <File name="lwip/core/timers.c" path="../../../../../Components/net/lwip-1.4.1/src/core/timers.c" type="1"/>
+    <File name="CoOS/utility.c" path="../../../../../CoOS/kernel/utility.c" type="1"/>
+    <File name="CoOS/event.c" path="../../../../../CoOS/kernel/event.c" type="1"/>
+    <File name="lwip/core/stats.c" path="../../../../../Components/net/lwip-1.4.1/src/core/stats.c" type="1"/>
+    <File name="OsConfig.h" path="../OsConfig.h" type="1"/>
+    <File name="lwip/core" path="" type="2"/>
+    <File name="lwip/netif/etharp.c" path="../../../../../Components/net/lwip-1.4.1/src/netif/etharp.c" type="1"/>
+    <File name="CoOS/core.c" path="../../../../../CoOS/kernel/core.c" type="1"/>
+    <File name="CoOS/OsKernelHeap.h" path="../../../../../CoOS/kernel/OsKernelHeap.h" type="1"/>
+    <File name="cmsis" path="" type="2"/>
+    <File name="CoOS/kernelHeap.c" path="../../../../../CoOS/kernel/kernelHeap.c" type="1"/>
+    <File name="CoOS/mm.c" path="../../../../../CoOS/kernel/mm.c" type="1"/>
+    <File name="lwip/core/ipv4/inet.c" path="../../../../../Components/net/lwip-1.4.1/src/core/ipv4/inet.c" type="1"/>
+    <File name="CoOS" path="" type="2"/>
+    <File name="CoOS/port/arch.c" path="../../../../../CoOS/portable/arch.c" type="1"/>
+    <File name="CoOS/OsMM.h" path="../../../../../CoOS/kernel/OsMM.h" type="1"/>
+    <File name="lwip/core/udp.c" path="../../../../../Components/net/lwip-1.4.1/src/core/udp.c" type="1"/>
+    <File name="lwip/core/tcp_in.c" path="../../../../../Components/net/lwip-1.4.1/src/core/tcp_in.c" type="1"/>
+    <File name="lwip/core/ipv4/inet_chksum.c" path="../../../../../Components/net/lwip-1.4.1/src/core/ipv4/inet_chksum.c" type="1"/>
+    <File name="lwip/core/ipv4/igmp.c" path="../../../../../Components/net/lwip-1.4.1/src/core/ipv4/igmp.c" type="1"/>
+    <File name="CoOS/OsError.h" path="../../../../../CoOS/kernel/OsError.h" type="1"/>
+    <File name="lwip/api/netifapi.c" path="../../../../../Components/net/lwip-1.4.1/src/api/netifapi.c" type="1"/>
+    <File name="CoOS/port/port.c" path="../../../../../CoOS/portable/GCC/port.c" type="1"/>
+    <File name="lwip_port" path="" type="2"/>
+    <File name="CoOS/OsFlag.h" path="../../../../../CoOS/kernel/OsFlag.h" type="1"/>
+    <File name="lwip/api/err.c" path="../../../../../Components/net/lwip-1.4.1/src/api/err.c" type="1"/>
+    <File name="CoOS/time.c" path="../../../../../CoOS/kernel/time.c" type="1"/>
+    <File name="CoOS/queue.c" path="../../../../../CoOS/kernel/queue.c" type="1"/>
+    <File name="lwip/api/netdb.c" path="../../../../../Components/net/lwip-1.4.1/src/api/netdb.c" type="1"/>
+    <File name="CoOS/utility.h" path="../../../../../CoOS/kernel/utility.h" type="1"/>
+    <File name="lwip_port/sys_arch.c" path="../../lwip_port/arch/sys_arch.c" type="1"/>
+    <File name="CoOS/flag.c" path="../../../../../CoOS/kernel/flag.c" type="1"/>
+    <File name="lwip/core/tcp.c" path="../../../../../Components/net/lwip-1.4.1/src/core/tcp.c" type="1"/>
+    <File name="cmsis/system_MK70F.c" path="../../cmsis/system_MK70F.c" type="1"/>
+    <File name="main.c" path="../main.c" type="1"/>
+    <File name="CoOS/OsTimer.h" path="../../../../../CoOS/kernel/OsTimer.h" type="1"/>
+  </Files>
+</Project>

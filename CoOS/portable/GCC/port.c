@@ -281,7 +281,7 @@ void PendSV_Handler(void)
 }
 #endif
 
-#if CFG_CHIP_TYPE == 1
+#if CFG_CHIP_TYPE == 1 || 3 == CFG_CHIP_TYPE
 void PendSV_Handler(void)
 {
 ////////debug block /////////////////////////
@@ -298,14 +298,28 @@ void PendSV_Handler(void)
     " MRS    R0, PSP        \n"    // Get PSP point (can not use PUSH,in ISR,SP is MSP )
     " STMDB  R0!,{R4-R11}   \n"    // Store r4-r11,r0 -= regCnt * 4,r0 is new stack 
                                    // top point (addr h->l r11,r10,...,r5,r4)
+#if __FPU_USED
+    " TST LR, #(1 << 4)         \n" // EXC_RETURN[4]
+    " IT EQ                     \n"
+    " VSTMDBEQ R0!, {S16-S31}   \n" // store remaining FPU registers
+#endif // CFG_FPU_ENABLE
+    " STR LR, [R0, #-4]!        \n" // store LR for correct return to task
+
     " STR    R0,[R1]        \n"    // Save orig PSP
      
     " STR    R2, [R3]       \n"    // TCBRunning  = TCBNext;
     " LDR    R0, [R2]       \n"    // Get SP of task that be switch into.
+
+    " LDR LR, [R0], #4          \n"
+#if __FPU_USED
+    " TST LR, #(1 << 4)         \n" // EXC_RETURN[4]
+    " IT EQ                     \n"
+    " VLDMIAEQ R0!, {S16-S31}   \n" // load remaining FPU registers
+#endif // CFG_FPU_ENABLE
+
     " LDMIA  R0!,{R4-R11}   \n"    // POP {R4-R11},R0 += regCnt * 4
     " MSR    PSP, R0        \n"    // Mov new stack point to PSP
-   
- 
+
     " exitPendSV:           \n"
 	" LDR    R3,=OSSchedLock\n"
 	" MOVS   R0, #0x0       \n"
@@ -315,4 +329,3 @@ void PendSV_Handler(void)
   );
 }
 #endif
-
