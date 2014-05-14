@@ -44,6 +44,7 @@
 
 /*!< 
 Defines chip type,cortex-m3(1),cortex-m0(2)      
+cortem-m4 without FPU(1), cortem-m4 with FPU(3)
 */
 #define CFG_CHIP_TYPE           (1)
 
@@ -60,7 +61,11 @@ Max number of tasks that can be running.
 /*!< 
 Idle task stack size(word).		                         
 */	
+#if CFG_CHIP_TYPE == 3
+#define CFG_IDLE_STACK_SIZE     (58)
+#else
 #define CFG_IDLE_STACK_SIZE     (25)
+#endif
 
 /*!< 
 System frequency (Hz).	                 	         

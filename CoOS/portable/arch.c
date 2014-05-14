@@ -57,13 +57,19 @@ OS_STK *InitTaskContext(FUNCPtr task,void *param,OS_STK *pstk)
 {
     OS_STK *context;
 	context  = pstk;
+#if CFG_CHIP_TYPE == 3
+	context      = context - 18;
+#endif
     *(context--) = (U32)0x01000000L;      /* xPSR	        */
 	*(context--) = (U32)task;             /* Entry point of task.                         */
 	*(context)   = (U32)0xFFFFFFFEL;
     context      = context - 5;
 	*(context)   = (U32)param;            /* R0: argument */
 	context      = context - 8;
-    *(--context) = 0xfffffffd;          /* LR */
+#if CFG_CHIP_TYPE == 3
+	context      = context - 16;
+#endif
+//    *(--context) = 0xfffffffd;          /* LR */
   	
     return (context);                   /* Returns location of new stack top. */
 }
