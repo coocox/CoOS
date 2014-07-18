@@ -1,8 +1,8 @@
 /**
  *******************************************************************************
  * @file       OsConfig.h
- * @version    V1.1.5    
- * @date       2014.01.13
+ * @version    V1.1.6    
+ * @date       2014.05.23
  * @brief      This file use by user to configuration CooCox CoOS.
  * @note       Ensure you have knew every item before modify this file. 
  *******************************************************************************

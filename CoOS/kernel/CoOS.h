@@ -1,8 +1,8 @@
 /**
  *******************************************************************************
  * @file       CoOS.h
- * @version    V1.1.5    
- * @date       2014.01.13
+ * @version    V1.1.6    
+ * @date       2014.05.23
  * @brief      API header file of CooCox CoOS.
  * @details    This file including all API functions's declare of CooCox CoOS.	
  *******************************************************************************

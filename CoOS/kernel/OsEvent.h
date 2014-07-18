@@ -1,8 +1,8 @@
 /**
  *******************************************************************************
  * @file       OsEvent.h	
- * @version    V1.1.5    
- * @date       2014.01.13
+ * @version    V1.1.6    
+ * @date       2014.05.23
  * @brief      Event management header file
  * @details    This file including some defines and declares related to event 
  *             (semaphore,mailbox,queque) management.

@@ -1,8 +1,8 @@
 /**
  *******************************************************************************
  * @file       OsError.h	
- * @version    V1.1.5    
- * @date       2014.01.13
+ * @version    V1.1.6    
+ * @date       2014.05.23
  * @brief      rror dispose header file	
  * @details    This file use to dispose error which from error configure for OS.
  *******************************************************************************

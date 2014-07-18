@@ -1,8 +1,8 @@
 /**
  *******************************************************************************
  * @file       OsQueue.h
- * @version    V1.1.5    
- * @date       2014.01.13
+ * @version    V1.1.6    
+ * @date       2014.05.23
  * @brief      Queue management header file	
  * @details    This file including some defines and declares about queue management.
  *******************************************************************************

@@ -1,12 +1,43 @@
 ;*******************************************************************************
-;                         PUBLIC FUNCTIONS
+; * @file      arch.c
+; * @version    V1.1.6    
+; * @date       2014.05.23
+; * @brief     This file provides InitTaskContext() and SysTick_Handler().
+; *******************************************************************************
+; * @copy
+; *  Redistribution and use in source and binary forms, with or without 
+; *  modification, are permitted provided that the following conditions 
+; *  are met: 
+; *  
+; *      * Redistributions of source code must retain the above copyright 
+; *  notice, this list of conditions and the following disclaimer. 
+; *      * Redistributions in binary form must reproduce the above copyright
+; *  notice, this list of conditions and the following disclaimer in the
+; *  documentation and/or other materials provided with the distribution. 
+; *      * Neither the name of the <ORGANIZATION> nor the names of its 
+; *  contributors may be used to endorse or promote products derived 
+; *  from this software without specific prior written permission. 
+; *  
+; *  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+; *  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
+; *  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+; *  ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE 
+; *  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
+; *  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
+; *  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+; *  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
+; *  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+; *  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF 
+; *  THE POSSIBILITY OF SUCH DAMAGE.
+; * 
+; * <h2><center>&copy; COPYRIGHT 2014 CooCox </center></h2>
 ;*******************************************************************************
 		
 	; Functions declared in this file
 	PUBLIC  Inc8              ; U8   Inc8(U8 *data);
 	PUBLIC  Dec8              ; U8   Dec8(U8 *data); 
 	PUBLIC  IRQ_ENABLE_RESTORE; void IRQ_ENABLE_RESTORE(void) ;
-  PUBLIC  IRQ_DISABLE_SAVE  ; void IRQ_DISABLE_SAVE(void) ; 
+    PUBLIC  IRQ_DISABLE_SAVE  ; void IRQ_DISABLE_SAVE(void) ; 
 	PUBLIC  SwitchContext     ; void SwitchContext(void); 
 	PUBLIC  PendSV_Handler    ; void PendSV_Handler(void);
 	PUBLIC	SetEnvironment	  ; void SetEnvironment(void);
@@ -63,7 +94,7 @@ IRQ_DISABLE_SAVE
     BX      LR
     
 SetEnvironment
-    SUBS    R0, #28
+    SUBS    R0, #100
     MSR     PSP, R0
     BX      LR	
  
@@ -90,25 +121,12 @@ PendSV_Handler
     MRS     R0, PSP             ; Get PSP point (can not use PUSH,in ISR,SP is MSP )
     STMDB   R0!,{R4-R11}        ; Store r4-r11,r0 -= regCnt * 4,r0 is new stack 
                                 ; top point (addr h->l r11,r10,...,r5,r4)
-#if __FPU_USED
-    TST LR, #(1 << 4)           ; EXC_RETURN[4]
-    IT EQ
-    VSTMDBEQ R0!, {S16-S31}     ; store remaining FPU registers
-#endif // CFG_FPU_ENABLE
-    STR LR, [R0, #-4]!          ; store LR for correct return to task
-
+	VSTMDB R0!, {S16-S31}							
     STR     R0,[R1]             ; Save orig PSP
       
     STR     R2, [R3]            ; TCBRunning  = TCBNext;
     LDR     R0, [R2]            ; Get SP of task that be switch into.
-
-    LDR LR, [R0], #4
-#if __FPU_USED
-    TST LR, #(1 << 4)           ; EXC_RETURN[4]
-    IT EQ
-    VLDMIAEQ R0!, {S16-S31}
-#endif // CFG_FPU_ENABLE
-
+	VLDMIA R0!, {S16-S31}
     LDMIA   R0!,{R4-R11}        ; POP {R4-R11},R0 += regCnt * 4
     MSR     PSP, R0             ; Mov new stack point to PSP
   
@@ -117,7 +135,8 @@ exitPendSV
     MOVS    R0, #0x0
     STRB    R0, [R3]
     ORR     LR, LR, #0x04       ; Ensure exception return uses process stack
+	LDR    LR,=0xFFFFFFED
     BX      LR                  ; Exit interrupt
-
+    
     END	
 	

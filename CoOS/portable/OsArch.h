@@ -1,8 +1,8 @@
 /**
  *******************************************************************************
  * @file       OsArch.h
- * @version    V1.1.5    
- * @date       2014.01.13
+ * @version    V1.1.6    
+ * @date       2014.05.23
  * @brief      Implement function declare related to Cortex-M3(ARM-v7)
  * @details    This header file including functions or defines related to 
  *             Cortex-M3(ARM-v7).	 		
@@ -71,17 +71,5 @@ extern U8      Dec8 (volatile U8 *data);
 extern void    IRQ_ENABLE_RESTORE(void);
 extern void    IRQ_DISABLE_SAVE(void);
 
-#if __FPU_USED
-
-#define CO_FLOAT_ISR(fn)                \
-    static void __##fn(void);    \
-    void fn(void) {                     \
-        asm volatile ("VSTMDB SP!, {S16-S31}    \n"     \
-                      "BLX %0      \n"   \
-                      "VLDMIA SP!, {S16-S31}" : : "r"(__##fn) : "lr");      \
-    }                                   \
-    void __##fn(void)
-
-#endif /* __FPU_USED */
 
 #endif /* _CPU_H */

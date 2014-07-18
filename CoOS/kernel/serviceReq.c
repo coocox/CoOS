@@ -1,8 +1,8 @@
 /**
  *******************************************************************************
  * @file       serviceReq.c
- * @version    V1.1.5    
- * @date       2014.01.13
+ * @version    V1.1.6    
+ * @date       2014.05.23
  * @brief      servive request management implementation code of CooCox CoOS kernel.	
  *******************************************************************************
  * @copy

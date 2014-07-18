@@ -1,8 +1,8 @@
 /**
  *******************************************************************************
  * @file       OsTime.c
- * @version    V1.1.5    
- * @date       2014.01.13
+ * @version    V1.1.6    
+ * @date       2014.05.23
  * @brief      Header file related to time management
  * @details    Thie file including some data declare related to time managment. 	
  *******************************************************************************

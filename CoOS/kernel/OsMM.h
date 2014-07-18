@@ -1,8 +1,8 @@
 /**
  *******************************************************************************
  * @file       OsMm.h
- * @version    V1.1.5    
- * @date       2014.01.13
+ * @version    V1.1.6    
+ * @date       2014.05.23
  * @brief      Header file	related to memory management 
  * @details    This file including some defines and function declare related to 
  *             memory management. 	
